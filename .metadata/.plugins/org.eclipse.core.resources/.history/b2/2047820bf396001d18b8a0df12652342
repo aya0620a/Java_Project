@@ -1,0 +1,58 @@
+
+import java.awt.Point;
+
+public class Line extends MyFrame2 {
+
+    public double min(double a, double b) {
+        return (a < b) ? a : b;
+    }
+
+    public double max(double a, double b) {
+        return (a > b) ? a : b;
+    }
+
+    // return absolute value
+    public double abs(double a) {
+        return (a < 0) ? -a : a;
+    }
+
+    public void drawLine(double xStart, double yStart, double xEnd, double yEnd) {
+        double rotation = (yStart - yEnd) / (xStart - xEnd);
+        double xLength = abs(xEnd - xStart);
+        double xMin = min(xStart, xEnd);
+        double yBase = (rotation > 0) ? min(yStart, yEnd) : max(yStart, yEnd);
+
+        for (int i = 0; i < xLength; i++) {
+            double y = yBase + i * rotation;
+            fillRect(xMin + i, y, 1, 1);
+        }
+    }
+    
+    public void drawDiamond(int xCenter, int yCenter, int width, int height) {
+        Point top = new Point(xCenter, yCenter - height / 2);
+        Point left = new Point(xCenter - width / 2, yCenter);
+        Point bottom = new Point(xCenter, yCenter + height / 2);
+        Point right = new Point(xCenter + width / 2, yCenter);
+        
+        drawLine(top.getX(), top.getY(), left.getX(), left.getY());
+        drawLine(left.getX(), left.getY(), bottom.getX(), bottom.getY());
+        drawLine(bottom.getX(), bottom.getY(), right.getX(), right.getY());
+        drawLine(right.getX(), right.getY(), top.getX(), top.getY());
+    }
+
+    public void run() {
+        int last = 5;   // 37022465
+        int n = last + 3;
+
+        for (int i = 0; i < n; i++) {
+            drawDiamond(200, 200, 20 * i + 50, 10 * i + 100);
+        }
+    }
+
+    public static void main(String[] args) {
+        new Line();
+    }
+
+}
+
+

@@ -1,0 +1,30 @@
+
+public class Vehicle extends MyFrame2{
+	int x, y, w, h, vx, vy, cx, cy, r, c;
+	
+    public Vehicle (int x, int y, int w, int h, int vx, int vy) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.vx = vx;
+        this.vy = vy;
+ 
+    }
+	 public void move() {
+	        x += vx;
+	        y += vy;
+	    }
+	 
+	public void draw(MyFrame2 f) {	
+		for(int i=0;i<7;i++) {
+			for(int k=0;k<5;k++) {
+				drawLine(x-(3*w/10), y-(h/4)+((k*h)/8), x+(3*w/10), y-(h/4)+((k*h)/8));
+				drawLine(x-(3*w/10)+(i*w)/10,y-(h/4),x-(3*w/10)+(i*w)/10,y+(h/4));
+				fillOval(x-(2*w)/8, y+h/6, h/4, h/4);
+				fillOval(x+w/8, y+h/6, h/4, h/4);
+			}
+		}	
+	}
+	}
+

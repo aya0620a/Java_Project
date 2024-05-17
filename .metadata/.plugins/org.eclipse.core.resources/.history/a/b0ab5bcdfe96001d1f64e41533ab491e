@@ -1,0 +1,38 @@
+
+public class Magic extends MyFrame2{
+	public void run() {
+		int A=3,B=7,C=0,D=2;
+		int a=2,b=4,c=3,d=1;
+		int x=120;
+		while(x<=350) {
+			fillRect(x,40,4,320);
+			fillRect(40,x,320,4);
+			x+=80;
+		}
+		
+		drawString(""+(A+a),50,100,50);
+		drawString(""+(B+b),105,140,35);
+		drawString(""+(C+c),165,140,35);
+		drawString(""+(D+d),220,140,35);
+		
+		drawString(""+(C+d),50,190,50);
+		drawString(""+(D+c),105,190,35);
+		drawString(""+(A+b),165,190,35);
+		drawString(""+(B+a),220,190,35);
+		
+		drawString(""+(D+b),55,270,50);
+		drawString(""+(C+a),105,240,35);
+		drawString(""+(B+d),165,240,35);
+		drawString(""+(A+c),220,240,35);
+		
+		drawString(""+(B+c),55,340,50);
+		drawString(""+(A+d),105,290,35);
+		drawString(""+(D+a),165,290,35);
+		drawString(""+(C+b),220,290,35);
+		
+	}
+
+	public static void main(String[] args) {
+		new Magic();
+	}
+}

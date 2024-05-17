@@ -1,0 +1,35 @@
+
+public class Circle extends MyFrame2 {
+
+    public void drawSpiral(int cx, int cy, int r, int c, int deg) {
+        for (int i = deg; i < 360 * c; i++) {
+            double radians = Math.toRadians(i);
+            Double X = radians * (r / c/ 2) * Math.cos(radians) + cx;
+            Double Y = radians * (r / c/ 2) * Math.sin(radians) + cy;
+            Double distance = Math.sqrt(Math.pow(cx, 2) + Math.pow(cy, 2));
+
+            if (distance == r && ((i - deg) & 360) == c) {
+                return;
+            }
+
+            fillRect(X, Y, 1, 1);
+        }
+    }
+
+    public void run() {
+        drawSpiral(60, 100, 20, 1, 0);
+        drawSpiral(170, 100, 20, 2, 0);
+        drawSpiral(280, 100, 20, 3, 0);
+        drawSpiral(60, 240, 20, 4, 90);
+        drawSpiral(170, 240, 20, 4, 180);
+        drawSpiral(280, 240, 20, 4, 270);
+    }
+
+    public static void main(String[] args) {
+        new Circle();
+    }
+
+}
+
+
+

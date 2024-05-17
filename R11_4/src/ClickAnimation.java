@@ -1,0 +1,64 @@
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+public class ClickAnimation extends MyFrame2 implements MouseListener {
+
+    public static void main(String[] args) {
+        new ClickAnimation();
+    }
+
+    Circle fillCircleWithCC; // 円(Circle クラスのオブジェクト)
+
+
+	
+    public void run() {
+    	
+    	
+    	fillCircleWithCC = new Circle(200, 200, 10, 0); // 中心座標(200, 200) および半径 10 の円(赤)を作成
+
+        addMouseListener(this); // 自身を MouseListener に登録
+
+        while(true) {
+            clear();
+            fillCircleWithCC.fillCircleWithCC(this);
+            // TODO: (その 2) 円(Circle クラスのオブジェクト circle)を描画
+
+            sleep(0.1);
+        }
+
+    }
+
+    /** マウスがクリックされた時に実行されるメソッド */
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        // TODO 自動生成されたメソッド・スタブ
+        int cx = e.getX();   // クリックされたウィンドウの x 座標を取得
+        int cy = e.getY();   // クリックされたウィンドウの y 座標を取得
+
+        int r = 10;  // 描画する円の半径
+        fillCircleWithCC = new Circle(cx, cy,r,0);
+        // TODO: (その 3) 円(Circle クラスのオブジェクト circle)の中心座標をクリックされた座標に変更
+
+
+    }
+    @Override
+    public void mousePressed(MouseEvent e) {
+        // TODO 自動生成されたメソッド・スタブ
+
+    }
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        // TODO 自動生成されたメソッド・スタブ
+
+    }
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        // TODO 自動生成されたメソッド・スタブ
+
+    }
+    @Override
+    public void mouseExited(MouseEvent e) {
+        // TODO 自動生成されたメソッド・スタブ
+
+    }
+}

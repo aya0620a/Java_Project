@@ -1,0 +1,57 @@
+
+public class anime extends MyFrame2 {
+	    public static void main(String[] args) {
+	        new anime();
+	    }
+
+	    //中心座標 (cx, cy) および半径 r の円を描画
+	    public void fillCircleWithCC(int cx, int cy, int r) {
+	    	fillOval(cx-r,cy-r,2*r,2*r);
+	    }
+
+	    public void run() {
+	        int r = 5;     // 移動する円の半径
+	        int cx =
+	        int y0 = 105+r;              // 左端の x 座標(移動する円の中心 x 座標の最小値)
+	        int x1 = 340;
+	        int y1 = 330; // 右端の x 座標(移動する円の中心 x 座標の最大値)
+	        int x = x0;    // 移動する円の中心 x 座標
+	        int y = 105+r;   // 移動する円の中心 y 座標
+            
+	        
+	        int dx = 5;    // 単位時間あたりの x 座標の変化量
+            int dy = 5;
+	        int animeT = 300;   // アニメーションの総コマ数
+	        double wtime = 0.1; // sleep に与える待機時間(コマの切り替えの間隔)
+
+	        for (int t = 0; t <= animeT; t++) {
+	            clear();   
+
+	            setColor(225,225,225);
+	            fillRect(50, 100, 300, 230); // 円が移動する範囲を示す四角形を描画
+	            
+	            setColor(0,0,0);
+	            fillCircleWithCC(x, y, r);  // 中心座標(x, y) および半径 r の円を描画(色の設定が変わるので注意)
+	            x += dx;  // x 座標の変化
+                y += dy;
+              
+                if (x == cx) {    //左端に到達
+                    dx=5;
+                }else if (x == x1){       //右端に到達
+                    dx=-5;
+                } else if (y == y0) {      //上端に到達
+                    dy=5;
+                }else if (y == y1) {        //下端に到達
+                    dy=-5;
+                }
+    	        sleep(wtime);
+                }
+                
+
+	        }
+	        
+	    }
+
+
+
+

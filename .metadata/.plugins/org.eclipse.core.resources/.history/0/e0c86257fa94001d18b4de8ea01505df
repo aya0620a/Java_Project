@@ -1,0 +1,110 @@
+
+public class PlayerAnimation extends MyFrame2 {
+
+	cart fillCircleWithCC;
+
+	public void fillCircleWithCC(int cx, int cy, int r, int c) {
+
+		fillOval(cx-r,cy-r,2*r,2*r);
+
+	}
+	public void run() {
+
+		fillCircleWithCC = new cart(200, 200, 10, 0, 10, 10); 
+
+		int x = 50;  // 自動車の中心 x 座標
+		int y = 50;  // 自動車の中心 y 座標
+		int r = 20;
+		int cw = 38;  // 自動車の幅
+		int ch = 30;  // 自動車の高さ
+		int c=0;
+		int cx = 200;
+		int cy = 250;
+		int d = 0;
+		int dx = 5;    // 単位時間あたりの x 座標の変化量
+		int dy = 5;
+		
+
+		cart player = new cart(x, y, cw, ch, 0, 0); // 止まった自動車の作成
+		addKeyListener(player);
+
+
+		for(int m=0;m<500;m++){
+
+			clear();
+
+			setColor(200,200,200);
+			fillRect(50,50,300,300);
+
+			cx += dx;  // x 座標の変化
+			cy += dy;
+
+			setColor(255-(c*20),0,0);
+			fillCircleWithCC(cx,cy,r,c);	
+			setColor(0,0,0);
+			player.draw(this);
+			player.move();
+			
+
+
+
+			if (cx <= 50+r) {    //左端に到達
+				dx=(int) (Math.random()*15)+5;
+			}  if (cx >= 350-r){       //右端に到達
+				dx=-(int) (Math.random()*15)+5;
+			}  if (cy <= 50+r) {      //上端に到達
+				dy=(int) (Math.random()*15)+5;
+			}  if (cy >= 350-r) {        //下端に到達
+				dy=-(int) (Math.random()*15)+5;
+			}
+
+
+			drawString("nc="+ d, 50,370,25);
+			drawString("score"+(500-m),180,370,25);
+
+
+			if(((cx-player.x)*(cx-player.x))+((cy-player.y)*(cy-player.y))<=(r*r)) {
+
+				cx = (int) (Math.random()*280)+60;
+				cy = (int) (Math.random()*280)+60;
+				setColor(255-(c*50),0,0);
+				fillCircleWithCC(cx,cy,r,c);
+
+				dx = 5;    // 単位時間あたりの x 座標の変化量
+				dy = 5;
+				cx += dx;  // x 座標の変化
+				cy += dy;	
+				d++;
+				c++;
+				r-=4;
+			}
+			sleep(0.01);
+			if(d==4) {
+				clear();
+				setColor(200,200,200);
+				fillRect(50,50,300,300);
+				setColor(0,0,0);
+				drawString("お疲れ様",150,150,20);
+				drawString("your score → "+(500-m),100,200,20);
+				break;
+				}
+			if(m==499) {
+				clear();
+				setColor(200,200,200);
+				fillRect(50,50,300,300);
+				setColor(0,0,0);
+				drawString("game over",100,150,30);
+				drawString("Try again!",100,200,30);
+			break;
+			}
+		}	
+
+		
+
+		
+	}
+
+	public static void main(String[] args) {
+		new PlayerAnimation();
+	}
+}

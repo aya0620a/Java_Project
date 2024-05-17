@@ -1,0 +1,30 @@
+
+public class OvalLoop extends MyFrame2{
+	public void run() {
+		int r1=100,r2=100;
+		int n=37022431%5+6;
+		int x = 100;
+		int y = 100;
+		setColor(0,255,128);
+		fillOval(x,y,r1*2,r2*2);
+
+		for(int i=0 ; i<n ; i++) {
+			
+			int x1 = 200, y1 = 200;
+			double radian = Math.toRadians(360 * i / n);
+			
+			for(int j = 0; j<n; j++) {
+			 
+			 double x2 = (int)Math.cos(radian);
+			 double y2 = (int)Math.sin(radian);
+
+			setColor(0,0,0);
+			fillOval(x2+135,y2+135,25,25);
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		new OvalLoop();
+	}
+}

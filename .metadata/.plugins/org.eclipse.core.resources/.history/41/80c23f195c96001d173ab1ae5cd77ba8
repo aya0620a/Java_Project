@@ -1,0 +1,39 @@
+
+public class Vehicle {
+	int x, y, w, h, vx, vy, cx, cy, r, c, dx, dy;
+	
+    public Vehicle (int x, int y, int w, int h, int vx, int vy, int dx, int dy) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.vx = vx;
+        this.vy = vy;
+        this.dx = dx;
+        this.dy = dy;
+ 
+    }
+	 public void move() {
+	        x += vx;
+	        y += vy;
+	    }
+	 
+	public void draw(MyFrame2 f) {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
+	
+	public void changeMove(MyFrame2 f) {
+		if (cx <= 50+r) {    //左端に到達
+			dx=(int) (Math.random()*15)+5;
+		}  if (cx >= 350-r){       //右端に到達
+			dx=-(int) (Math.random()*15)+5;
+		}  if (cy <= 50+r) {      //上端に到達
+			dy=(int) (Math.random()*15)+5;
+		}  if (cy >= 350-r) {        //下端に到達
+			dy=-(int) (Math.random()*15)+5;
+		}
+	}
+	}
+
+

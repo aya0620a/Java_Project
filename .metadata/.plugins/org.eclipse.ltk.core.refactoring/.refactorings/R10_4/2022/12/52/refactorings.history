@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="リソース名 &apos;R10_4/src/Track.java&apos; を &apos;MyVehicle.java&apos; に変更します" description="リソース &apos;Track.java&apos; の名前変更" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/Track.java" name="MyVehicle.java" stamp="1671591918766" updateReferences="true"/>
+</session>

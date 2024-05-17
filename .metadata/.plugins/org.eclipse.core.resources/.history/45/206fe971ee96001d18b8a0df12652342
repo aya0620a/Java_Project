@@ -1,0 +1,28 @@
+
+public class Circle extends MyFrame2 {
+
+    public void drawCircle(int xCenter, int yCenter, int radius) {
+        for (int deg = 0; deg < 359; deg++) {
+            Double x = radius * Math.cos(Math.toRadians(deg)) + xCenter;
+            Double y = radius * Math.sin(Math.toRadians(deg)) + yCenter;
+            fillRect(x, y, 1, 1);
+        }
+    }
+
+    public void run() {
+        int last = 5;   // 37022465
+        int n = last + 3;
+
+        for (int i = 0; i < n; i++) {
+            int radius = (i + 1) * 10;
+            drawCircle(150, 150, radius);
+        }
+    }
+
+    public static void main(String[] args) {
+        new Circle();
+    }
+
+}
+
+
